@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+:root{
+    --after-content: '2';
+}
+html{
+    overflow-x: hidden;
+}
+body{
+    background: rgb(18, 16, 39);
+    width: 100vw;
+}
+i{
+    color: rgb(1, 255, 44);
+    padding-right: 10px;
+}
+.input-control input{
+    border: 2px solid white;
+    border-radius: 4px;
+
+}
+.navbar-brand{
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(225, 0, 255);
+    transition: .3s;
+}
+.navbar-brand:hover{
+    color:rgb(255, 32, 32);
+}
+.nav-link{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: rgb(28, 192, 22);
+    text-transform: uppercase;
+    transition: 0.3;
+}
+.nav-link:hover{
+    color: red !important;
+}
+.main{
+    background: linear-gradient(rgba(23, 10, 37, 0.5), rgba(11, 11, 43, 0.5)), url("https://images.alphacoders.com/782/78291.jpg");;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.main h1{
+    font-size: 4rem;
+    font-weight: 700;
+    color: cyan; 
+}
+.main h3{
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgb(220, 217, 235);
+}
+.btn1{
+    height: 50px;
+    width: 25%;
+    border: none;
+    outline: none;
+    background-color: rgb(250, 0, 0);
+    color: rgb(172, 166, 171);
+    font-weight: 200;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.5s;
+}
+.btn1:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 255, 13);
+    transform: scale(0.9);
+}
+h1{
+    font-weight: 700;
+    color: rgb(252, 216, 13);
+}
+.main2{
+    background: linear-gradient( rgba(11, 11, 43, 0.5), rgba(23, 10, 37, 0.5)), url("https://images.alphacoders.com/782/78291.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.main2 h6{
+    color: rgb(255, 251, 0);
+}
+.main2 p{
+    color: rgb(255, 196, 0);
+}
+.wrap{
+    background: linear-gradient(rgba(23, 10, 37, 0.5), rgba(11, 11, 43, 0.5)), url("https://images.alphacoders.com/782/78291.jpg");;
+    background-size: contain;
+    width: 100%;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    margin-top: 50px;
+}
+.category_item{
+    cursor: pointer;
+}
+.work {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.ct_item-active{
+    background: linear-gradient(rgba(0, 0, 0, 0.829), rgb(9, 9, 22, 0.8)), 
+    url("https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_960_720.jpg");
+}
+.product-item img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.layer h3 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #f5b400;
+    text-align: center;
+}
+.layer {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(rgba(0, 0, 0, 0.829), rgba(9, 9, 22, 0.829)), 
+    url("https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_960_720.jpg");
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.product-list .product-item:hover .layer{
+    height: 100%;
+} 
+.product-list #comprar{
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: auto;
+}
+.product-list #comprar{
+    color: rgb(255, 0, 255);
+    display: block;
+    margin: 5px;
+    transition: 0.5s;
+}
+.product-list #comprar:hover{
+    color: #f5b400;
+}
+
+.product i{
+    color: rgb(1, 255, 44);
+    padding-right: 10px;
+}
+.product-item p{
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+
+
+.card:hover{
+    box-shadow: 1px 1px 17px 1px rgba(41, 41, 41, 0.83);
+    -webkit-box-shadow: 1px 1px 17px 1px rgba(87, 87, 87, 0.959);
+    -moz-box-shadow: 1px 1px 17px 1px rgba(70, 69, 69, 0.83);
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+.about h5{
+    color: rgb(212, 0, 255);
+}
+.about p{
+    color: rgb(255, 140, 0);
+}
+.about{
+    background: linear-gradient(rgba(23, 10, 37, 0.5), rgba(11, 11, 43, 0.5)), url("https://images.alphacoders.com/782/78291.jpg");;
+    background-size: cover;
+    height: 130vh;
+    width: 100%;
+}
+.contact h6{
+    color: rgb(0, 255, 0);
+}
+.contact p{
+    color: rgb(255, 0, 0);
+}
+.contact{
+    background: linear-gradient(rgba(23, 10, 37, 0.5), rgba(11, 11, 43, 0.5)), url("https://images.alphacoders.com/782/78291.jpg");;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.contact input, textarea{
+    background: rgb(3, 3, 3);
+    color:rgb(0, 255, 0);
+}
+.contact input::placeholder{
+    font-weight: bold;
+    color: rgb(94, 255, 0);
+}
+::placeholder{
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+}
+.footer{
+    background-color: black;
+    color: aliceblue;
+}
+.btn2{
+    height: 50px;
+    width: 100px;
+    background: rgb(2, 245, 14);
+    margin-left: -10px;
+    border: 3px solid rgb(68, 0, 255);
+    font-weight: 700;
+    color: rgb(206, 22, 68);
+    transition: .5s;
+}
+.btn2:hover{
+    background-color: rgb(12, 21, 58);
+    color: cyan;
+}
+.footer input{
+    height: 45px;
+    width: 55%;
+    border: 2px solid rgb(0, 255, 76);
+    margin-top: 20px;
+    font-weight: 600;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    margin: 0;
+}
+.footer i{
+    font-size: 2.5rem !important;
+    color: rgb(255, 0, 255);
+    transition: 0.3s;
+}
+.footer i:hover{
+    color: red;
+    font-size: 2.6rem !important;
+}
+.footer h5{
+    color: red;
+}
+.footer p{
+    color: rgb(0, 255, 0);
+}
+
+.modal-content{
+    background: rgba(0, 0, 0, 0.797);
+    color:rgb(255, 255, 255);
+}
+.card-body{
+    background-color: rgb(0, 0, 0);
+}
+.modal-title{
+    color: #fff200;
+    font-weight: bold;
+}
+.fa-trash-alt{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: rgb(9, 255, 0);
+    text-transform: uppercase;
+    transition: 0.3;
+}
+.fa-trash-alt:hover{
+    color: red !important;
+}
+
+.non-empty::after{
+    content: var(--after-content);
+    font-size: 16px;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top:-15px;
+    right: 10%;
+    background-color: rgb(74, 0, 74);
+    border-radius: 50%;
+}
+
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+
+
+
+
+
+
+

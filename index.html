@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spectrum</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="styles\style.css">
+    <script src="script/jquery-3.6.1.js"></script>
+    <script src="validations.js"></script>
+    <script src="script/script.js" async></script>
+  </head>
+  <body>
+    <!---NAVBAR----------------------------->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">SPECTRUM</a>
+          <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="store.html">Tienda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Sobre Nosotros</a>
+              </li>
+            </ul>
+          </div>
+          <form class="cart">
+            <button class="btn btn-dark boton-carrito" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-cart-shopping"></i>Carrito
+            </button>
+          </form>
+        </div>
+      </nav>
+    <!---NAVBAR----------------------------->
+
+
+
+    <!-- Modal ---------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header d-flex">
+            <div class="container m-auto">
+              <h5 class="modal-title"  style="color: rgb(255, 230, 0);" id="exampleModalLabel">Carrito de compras</h5>
+              <div class="subtotal" style="color: rgb(0, 255, 13);">Subtotal: $0.00</div>
+            </div>
+            <div class="container">
+              <h5 class="modal-title"  style="color: rgb(90, 172, 254);" id="exampleModalLabel">Checkout</h5>
+            </div>
+            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row">
+            <div class="modal-body col-md-4">
+            </div>
+            <div class="col-md-8">
+              <div>
+                <h4 class="mb-3"  style="color: rgb(0, 217, 255);">Datos de pago</h4>
+                <form class="needs-validation">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="firstName"  style="color: rgb(255, 78, 225);">Nombres</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="lastName"  style="color: rgb(255, 251, 0);">Apellidos</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email"  style="color: rgb(255, 0, 0);">Email <span class="text-muted">(Obligatorio)</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="address"  style="color: rgb(123, 67, 255);">Direccion</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="address2"  style="color: rgb(0, 255, 13);">Direccion 2 <span class="text-muted">(Opcional)</span></label>
+                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-5 mb-3">
+                      <label for="country"  style="color: rgb(0, 255, 187);">Pais</label>
+                      <select class="custom-select d-block w-100" id="country" required>
+                        <option value="">Escoger</option>
+                        <option>Peru</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="state"  style="color: rgb(255, 213, 0);">Departamento</label>
+                      <select class="custom-select d-block w-100" id="state" required>
+                        <option value="">Escoger</option>
+                        <option>La Libertad</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="zip"  style="color: rgb(255, 0, 128);">Codigo postal</label>
+                      <input type="text" class="form-control" id="zip" placeholder="" required>
+                    </div>
+                  </div>
+                  <hr class="mb-4">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="same-address">
+                    <label class="custom-control-label" for="same-address"  style="color: rgb(0, 255, 30);">Confirmo que la direccion es la misma a realizar el envio</label>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="save-info">
+                    <label class="custom-control-label" for="save-info"  style="color: rgb(255, 225, 0);">Acepto los terminos y condiciones.</label>
+                  </div>
+                  <hr class="mb-4">
+          
+                  <h4 class="mb-3"  style="color: rgb(42, 74, 255);">Metodos de pago</h4>
+          
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                      <label class="custom-control-label" for="credit"  style="color: rgb(70, 147, 255);">Tarjeta de credito</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="debit"  style="color: rgb(0, 247, 255);">Tarjeta de debito</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="paypal"  style="color: rgb(48, 59, 255);">PayPal</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="cc-name"  style="color: rgb(243, 255, 71);">Nombre en la tarjeta</label>
+                      <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                      <small class="text-muted"  style="color: rgb(0, 255, 13);">Nombre completo del titular de la tarjeta</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="cc-number"  style="color: rgb(229, 255, 0);">Numero de la tarjeta</label>
+                      <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 mb-3">
+                      <label for="cc-expiration"  style="color: rgb(242, 0, 255);">FV</label>
+                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="cc-cvv"  style="color: rgb(255, 0, 0);">CVV</label>
+                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    </div>
+                  </div>
+                </form>
+                <hr class="mb-4">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Confirmar para continuar</button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+      
+		<!---MAIN-------------------------------->
+
+			<section class="main">
+				<div class="container py-5">
+					<div class="row py-5">
+						<div class="col-lg-7 pt-5 text-center m-auto">
+							<h1>Racks en formato MaxForLive para <span style="color: rgb(153, 0, 255);">Ableton Live</span></h1>
+							<h3>Tips y trucos para su manejo en <button class="btn1 mt-4">Youtube</button></h3>
+						</div>
+            <div class="embed-responsive embed-responsive-16by9 col-lg-5 m-auto text-center">
+              <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/R4ufhxfPwxU" allowfullscreen></iframe>
+            </div>
+					</div>
+				</div>
+				</div>
+			</section>
+
+      <section class="main2">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-5 m-auto mb-5 text-center">
+              <h1>Selecciones</h1>
+              <h6 style="color: cyan">Aquí comienza la magia</h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 mb-2 bg-dark">
+                <div class="card-body">
+                  <img src="images/0.jpg" class="img-fluid" alt="">
+                </div>
+                <h6>Bundle 3x2</h6>
+                <p><i class="fa-solid fa-cart-shopping"></i>$5.00</p>
+              </div>
+            </div>
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 mb-2 bg-dark">
+                <div class="card-body">
+                  <img src="images/1.jpg" class="img-fluid" alt="">
+                </div>
+                <h6>Freebies!</h6>
+                <p><i class="fa-solid fa-cart-shopping"></i>$0.00</p>
+              </div>
+            </div>
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 mb-2 bg-dark">
+                <div class="card-body">
+                  <img src="images/2.jpg" class="img-fluid" alt="">
+                </div>
+                <h6>Dreamy Texture</h6>
+                <p><i class="fa-solid fa-cart-shopping"></i>$3.00</p>
+              </div>
+            </div>
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 mb-2 bg-dark">
+                <div class="card-body">
+                  <img src="images/3.jpg" class="img-fluid" alt="">
+                </div>
+                <h6>Sharp and Evil</h6>
+                <p><i class="fa-solid fa-cart-shopping"></i>$3.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 text-center m-auto">
+                <button class="btn1 mt-4">Ver más</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<!---MAIN-------------------------------->
+    
+    <!---------FOOTER----------------------------------->
+    <section class="footer py-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-9 m-auto text-center">
+            <h1>Recibe noticias de nuestro Newsletter!</h1>
+            <input type="text" placeholder="Ingresa tu Email ☻">
+            <button class="btn2">Enviar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Informacion util</h5>
+                <p>Racks</p>
+                <p>Linea de efectos</p>
+                <p>Procesos en DAW</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Referencias externas</h5>
+                <p>Ableton Live</p>
+                <p>M4L</p>
+                <p>VST3</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Documentacion</h5>
+                <p>Manuales</p>
+                <p>Wavetable Sintesis</p>
+                <p>Frecuencia modular</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Redes sociales</h5>
+                <span><i class="fa-brands fa-facebook"></i></span>
+                <span><i class="fa-brands fa-bandcamp"></i></span>
+                <span><i class="fa-brands fa-youtube"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p class="text-center">Una pagina web creada para el uso y deleite de la comunidad, espacio libre de derechos ♥.</p>
+      </div>
+    </section>
+
+   <!---------FOOTER----------------------------------->
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+    crossorigin="anonymous"></script>
+  </body>
+</html>				

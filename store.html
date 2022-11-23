@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spectrum</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+    crossorigin="anonymous"></script>
+    <script src="script/jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="styles\style.css">
+  </head>
+  <body>
+    <!---NAVBAR----------------------------->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">SPECTRUM</a>
+          <button class="navbar-toggler bg-danger" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" 
+                href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="store.html">Tienda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Sobre Nosotros</a>
+              </li>
+            </ul>
+          </div>
+          <form class="cart">
+            <button class="btn btn-dark boton-carrito" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-cart-shopping"></i>Carrito
+            </button>
+          </form>
+        </div>
+    </nav>
+    <!---NAVBAR----------------------------->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header d-flex">
+        <div class="container m-auto">
+          <h5 class="modal-title"  style="color: rgb(255, 230, 0);" id="exampleModalLabel">Carrito de compras</h5>
+          <div class="subtotal" style="color: rgb(0, 255, 13);">Subtotal: $0.00</div>
+        </div>
+        <div class="container">
+          <h5 class="modal-title"  style="color: rgb(90, 172, 254);" id="exampleModalLabel">Checkout</h5>
+        </div>
+        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="row">
+        <div class="modal-body col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div>
+            <h4 class="mb-3"  style="color: rgb(0, 217, 255);">Datos de pago</h4>
+            <form id="form">
+              <div class="row">
+                <div class="col-md-6 mb-3 input-control">
+                  <label for="firstName"  style="color: rgb(255, 78, 225);">Nombres</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="error"></div>
+                </div>
+                <div class="col-md-6 mb-3 input-control">
+                  <label for="lastName"  style="color: rgb(255, 251, 0);">Apellidos</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="mb-3 input-control">
+                <label for="email"  style="color: rgb(255, 0, 0);">Email <span class="text-muted">(Obligatorio)</span></label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="error"></div>
+              </div>
+      
+              <div class="mb-3 input-control">
+                <label for="address"  style="color: rgb(123, 67, 255);">Direccion</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <div class="error"></div>
+              </div>
+      
+              <div class="mb-3">
+                <label for="address2"  style="color: rgb(0, 255, 13);">Direccion 2 <span class="text-muted">(Opcional)</span></label>
+                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                <div class="error"></div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-5 mb-3 input-control">
+                  <label for="country"  style="color: rgb(0, 255, 187);">Pais</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">Escoger</option>
+                    <option>Peru</option>
+                  </select>
+                  <div class="error"></div>
+                </div>
+                <div class="col-md-4 mb-3 input-control">
+                  <label for="state"  style="color: rgb(255, 213, 0);">Departamento</label>
+                  <select class="custom-select d-block w-100" id="state" required>
+                    <option value="">Escoger</option>
+                    <option>La Libertad</option>
+                  </select>
+                  <div class="error"></div>
+                </div>
+                <div class="col-md-3 mb-3 input-control">
+                  <label for="zip"  style="color: rgb(255, 0, 128);">Codigo postal</label>
+                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <div class="error"></div>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="same-address">
+                <label class="custom-control-label" for="same-address"  style="color: rgb(0, 255, 30);">Confirmo que la direccion es la misma a realizar el envio</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info"  style="color: rgb(255, 225, 0);">Acepto los terminos y condiciones.</label>
+              </div>
+              <hr class="mb-4">
+      
+              <h4 class="mb-3"  style="color: rgb(42, 74, 255);">Metodos de pago</h4>
+      
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="credit"  style="color: rgb(70, 147, 255);">Tarjeta de credito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="debit"  style="color: rgb(0, 247, 255);">Tarjeta de debito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="paypal"  style="color: rgb(48, 59, 255);">PayPal</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3 input-control">
+                  <label for="cc-name"  style="color: rgb(0, 255, 47);">Nombre en la tarjeta</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted"  style="color: rgb(255, 31, 31);">Nombre completo del titular de la tarjeta</small>
+                  <div class="error"></div>
+                </div>
+                <div class="col-md-6 mb-3 input-control">
+                  <label for="cc-number"  style="color: rgb(255, 217, 0);">Numero de la tarjeta</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3 input-control">
+                  <label for="cc-expiration"  style="color: rgb(242, 0, 255);">FV</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="error"></div>
+                </div>
+                <div class="col-md-3 mb-3 input-control">
+                  <label for="cc-cvv"  style="color: rgb(255, 0, 0);">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="error"></div>
+                </div>
+              </div>
+            </form>
+            <hr class="mb-4">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Confirmar para continuar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+		<!---STORE-------------------------------->
+
+  <section class="wrap">
+      <h1 class="sub-tittle text-center">Categorias</h1>
+      <div id="store-wrapper">
+          <div class="container">
+            <div class="category_list row">
+              <div class="col-lg-3 text-center mb-3 mt-3">
+                <div class="card border-0 m-auto bg-dark category_item" category="all">
+                  <a style="color: rgb(30, 255, 0);">Todo</a>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center mb-3 mt-3">
+                <div class="card border-0 m-auto bg-dark category_item" category="instruments">
+                  <a style="color: rgb(255, 0, 0);">Instrumentos</a>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center mb-3 mt-3">
+                <div class="card border-0 m-auto bg-dark category_item" category="effects">
+                  <a style="color: rgb(255, 0, 212);">Efectos</a>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center mb-3 mt-3">
+                <div class="card border-0 m-auto bg-dark category_item" category="wavetables">
+                  <a style="color: rgb(0, 247, 255);">Wavetables y Samples</a>
+                </div>
+              </div> 
+            </div>
+
+            <hr style="color: cyan">
+
+            <div class="product-list shop-items">
+              <div data-id="1" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic1.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Chiral</h3>
+                  <p><span>Chiral es un sintetizador holográfico habilitado para MPE creado 
+                    para fomentar la experimentación a través de la modulación de fase, 
+                    la modulación de amplitud y una amplia matriz de modulación.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$10.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="2" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic2.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Slink</h3>
+                  <p><span>Genere efectos espectrales alucinantes, modulación sutil de estilo 
+                    analógico e ideas melódicas impredecibles y en evolución, todo controlado 
+                    por el motor de onda Slink excepcionalmente flexible.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="3" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic3.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">OctaCell</h3>
+                  <p><span>OctoCell combina síntesis aditiva, FM y sustractiva en una interfaz accesible. 
+                    Apile hasta ocho osciladores, cada uno con sus propias opciones de FM individuales, 
+                    y marque una variedad de posibilidades de modulación y envolvente para crear sonidos ricos y en evolución.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$8.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="4" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic4.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">IBN</h3>
+                  <p><span>Produzca paisajes sonoros generativos, melodías impredecibles y modulaciones en 
+                    evolución con dispositivos inspirados en las fuerzas físicas y el mundo natural.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$4.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="5" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic20.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Ensemble</h3>
+                  <p><span>Desde ondas rítmicas precisas hasta extensas estelas de vapor, 
+                    explora el espacio y el tiempo de tu sonido con una diversa variedad de retardos y 
+                    reverberaciones reunidas en una colección inspiradora y versátil.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="6" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic6.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Pallas</h3>
+                  <p><span>Enriquece tu colección de sintetizadores con tres de nuestros dispositivos más populares, 
+                    todos de Max for Cats. Explore los tonos complejos de la síntesis FM, el valor y el carácter 
+                    de los sintetizadores analógicos y las ilimitadas posibilidades creativas de la síntesis modular.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$22.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="7" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic7.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Grain Scanner</h3>
+                  <p><span>Grain Scanner te permite diseñar ruidos experimentales, efectos defectuosos, 
+                    texturas alienígenas y enormes nubes de ambiente. Su motor de sonido avanzado convierte 
+                    cualquier muestra en una pizarra en blanco para partes de sintetizador de otro mundo.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$2.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="8" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic8.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">CV Instrument</h3>
+                  <p><span>Con más de 120 racks de batería e instrumentos, más de 180 bucles para trocear, 
+                    cadenas de efectos ajustables y más, Beat Tools tiene todos los sonidos que necesita 
+                    para crear ritmos con manos, especialmente con Push.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$15.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="9" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic9.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Dr. Chaos</h3>
+                  <p><span>Una colección de secuenciadores creativos que introducen la probabilidad y el azar en tu música.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$10.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="10" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic10.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Spectral Blur</h3>
+                  <p><span>Creative Extensions es una adición gratuita a Live 10 Suite creada con un 
+                    enfoque experimental para el procesamiento de sonido y la composición generativa.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$7.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="11" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic11.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Surround Panner</h3>
+                  <p><span>Simplemente cargue el dispositivo en una pista en su conjunto en vivo y use el control XY para colocarlo
+                    en cualquier lugar del campo envolvente. Ocho preajustes le permiten elegir entre configuraciones de cuatro, seis y ocho canales.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$9.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="12" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic12.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Convolution Reverb</h3>
+                  <p><span>Convolution Reverb es un dispositivo creativo para traer un nuevo espacio a sus sonidos: 
+                    un conjunto de reverberación basado en muestras con cientos de respuestas de impulso de espacios 
+                    del mundo real y hardware de clase mundial.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$25.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="13" class="product-item shop-item work" category="instruments">
+                <img class="shop-item-image" src="images/pic13.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Iota</h3>
+                  <p><span>Dirigido a músicos electrónicos, diseñadores de sonido y artistas de instalación, 
+                    Iota es un instrumento de bucle granular de Max For Live que extrae un potencial creativo 
+                    infinito incluso de las muestras más simples, a través de una interfaz gráfica inspiradora.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart </span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$12.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="14" class="product-item shop-item work" category="effects">
+                <img class="shop-item-image" src="images/pic14.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">MidiVolve</h3>
+                  <p><span>Este arpegiador, generador de riffs y secuenciador de Max For Live convierte incluso los 
+                    patrones MIDI más simples en un continuo musical en evolución, y viene con una colección de 
+                    racks de efectos e instrumentos híbridos electrónicos/acústicos que capturan los sonidos clásicos y 
+                    contemporáneos de las leyendas de la música electrónica Coldcut.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$8.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="15" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/0.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Wavetable Bundle</h3>
+                  <p><span>Paquete con 25 samples para Sampler y Simpler con todas ondas de forma necesarias para generar ambientes ricos en textura.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$3.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="16" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/4.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Plucked Strings</h3>
+                  <p><span>Desde agudos punteos entrecortados hasta suaves trémolos, infunde a tu música los tonos evocadores de un ronroco, 
+                    un arpa celta y armónicos de guitarra y bajo.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$3.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="17" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/5.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Nostalgique</h3>
+                  <p><span>Nostalgique es una rica colección de instrumentos y Drum Racks que han sido muestreados a partir de tres piezas del querido equipo de Ensoniq. 
+                    Agregue un carácter vintage a sus producciones o modifique estos sonidos clásicos para crear sus propios experimentos retrofuturistas.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="18" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/3.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Evil Nightmares</h3>
+                  <p><span>Si necesitas sonidos oscuros, duros y agresivos, ¡este es tu paquete de preajustes de armas! 
+                    Hemos abusado de las modulaciones de Wavetable para crear  25 sintetizadores poli  y 21 sintetizadores mono que atravesarán cualquier mezcla.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="19" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/1.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Free Escentials</h3>
+                  <p><span>Free Essentials es una colección de 52 presets arpegiados para el sintetizador Wavetable de Ableton Live.
+                    Y lo has adivinado... ¡es gratis!</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$0.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="20" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/2.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Dreamy Synths</h3>
+                  <p><span>Si necesita nuevos sonidos atmosféricos y en movimiento, ¡está de suerte! ¡Este es tu paquete trippy! 
+                    Hemos abusado de las modulaciones de Wavetable para crear un conjunto de 45 pads de ensueño que te harán flotar durante horas</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="21" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/6.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Spectral Textures</h3>
+                  <p><span>Una parte de grabaciones de campo y una parte de síntesis aditiva, Spectral Textures es un instrumento único que combina 
+                    dos mundos distintos de sonido para crear atmósferas, texturas y progresiones vibrantes.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$8.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="22" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/7.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Drone Lab</h3>
+                  <p><span> Piérdase en la escucha profunda con hilos de tono y textura complejos y en evolución, ruido generativo, instrumentos de muestras 
+                    múltiples, además de dispositivos y racks diseñados para la experimentación y la improvisación.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$12.00</span>
+                </p>
+                </div>
+              </div>
+              <div data-id="23" class="product-item shop-item work" category="wavetables">
+                <img class="shop-item-image" src="images/8.jpg">
+                <div class="layer">
+                  <h3 class="shop-item-tittle">Singularities</h3>
+                  <p><span>Singularities utiliza muestras individuales y parámetros expresivos finamente ajustados para capturar el sonido y la sensación 
+                    de los sintetizadores y muestreadores clásicos. Se incluyen 40 racks de instrumentos, además de clips MIDI y kits de batería.</span>
+                  <span id="comprar" class="shop-item-button"><i class="fa-solid fa-cart-shopping"></i>Add to cart</span>
+                  <span class="shop-item-price" style="color: yellow; font-size: 20px;">$5.00</span>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+
+		<!---STORE-------------------------------->
+
+    <!---------FOOTER----------------------------------->
+    <section class="footer py-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-9 m-auto text-center">
+            <h1>Recibe noticias de nuestro Newsletter!</h1>
+            <input type="text" placeholder="Ingresa tu Email ☻">
+            <button class="btn2">Enviar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Informacion util</h5>
+                <p>Racks</p>
+                <p>Linea de efectos</p>
+                <p>Procesos en DAW</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Referencias externas</h5>
+                <p>Ableton Live</p>
+                <p>M4L</p>
+                <p>VST3</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Documentacion</h5>
+                <p>Manuales</p>
+                <p>Wavetable Sintesis</p>
+                <p>Frecuencia modular</p>
+              </div>
+              <div class="col-lg-3 py-3">
+                <h5 class="pb-3">Redes sociales</h5>
+                <span><i class="fa-brands fa-facebook"></i></span>
+                <span><i class="fa-brands fa-bandcamp"></i></span>
+                <span><i class="fa-brands fa-youtube"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p class="text-center">Una pagina web creada para el uso y deleite de la comunidad, espacio libre de derechos ♥.</p>
+      </div>
+    </section>
+
+   <!---------FOOTER----------------------------------->
+   <script src="validations.js"></script>
+
+   <script src="script/script.js"></script>
+
+  </body>
+</html>				
