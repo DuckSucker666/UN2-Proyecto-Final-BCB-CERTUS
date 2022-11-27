@@ -1,4 +1,6 @@
 const cartIcon = document.querySelector(".boton-carrito");
+const addToCartBtns = document.querySelectorAll("#comprar");
+
 
 $(document).ready(function () {
   //Agregando clase active a las categorias//
@@ -22,7 +24,7 @@ $(document).ready(function () {
     $(".product-item").show();
     });
 });
-
+//Clase para los elementos del carrito de compras con sus datos correspondientes
 class CartItem {
   constructor(name, img, price, desc) {
     this.name = name;
@@ -32,10 +34,11 @@ class CartItem {
     this.quantity = 1;
   }
 }
-
+//Asignando los items de carrito a un espacio dentro del localStorage para usarlos en el modal de carrito de compras
 class LocalCart {
+  //Llave para identificar los elementos que compondran carrito
   static key = "cartItems";
-
+  //Asignando los elementos con su identificador al espacio de localStorage 
   static getLocalCartItems() {
     let cartMap = new Map();
     const cart = localStorage.getItem(LocalCart.key);
@@ -43,6 +46,7 @@ class LocalCart {
     return new Map(Object.entries(JSON.parse(cart)));
   }
 
+  //A traves de la funcion updateCartUI se asigna cada elemento del localcartitem para agregarse posteriormente
   static addItemToLocalCart(id, item) {
     let cart = this.getLocalCartItems();
     if (cart.has(id)) {
@@ -58,7 +62,7 @@ class LocalCart {
       updateCartUI();
     }
   }
-
+  //A traves del identificador se remueve tambien el elemento con la respectiva funcion updateCartUI que se declara posteriormente
   static removeItemFromCart(id) {
     let cart = LocalCart.getLocalCartItems();
     if (cart.has(id)) {
@@ -79,10 +83,13 @@ class LocalCart {
     }
   }
 }
-const addToCartBtns = document.querySelectorAll("#comprar");
+
+//Evento click para agregar a traves del recorrido forEach en cada uno de los elementos HTML con el data-id en orden numerico
 addToCartBtns.forEach((btn) => {
   btn.addEventListener("click", addItemFunction);
 });
+
+//Declaracion de los datos respectivos para su asignacion a los elementos de tienda-carrito 
 function addItemFunction(e) {
   const id = e.target.parentElement.parentElement.parentElement.getAttribute("data-id");
   const img = e.target.parentElement.parentElement.previousElementSibling.src;
@@ -94,6 +101,7 @@ function addItemFunction(e) {
   LocalCart.addItemToLocalCart(id, item);
 }
 
+//Funcion que crea los elementos dentro del cuerpo del modal con cada evento click para mostrarse y hacer las operaciones de compra
 function updateCartUI() {
   const cartWrapper = document.querySelector(".modal-body");
   cartWrapper.innerHTML = "";
@@ -130,12 +138,15 @@ function updateCartUI() {
             </div>
         </div>
         `;
+    //Evento click para remover elemento dentro del modal con el identificador respectivo
     cartItem.lastElementChild.addEventListener("click", () => {
       LocalCart.removeItemFromCart(key);
     });
 
     cartWrapper.append(cartItem);
   }
+
+  //Contador de elementos dentro del carrito que se agrega a traves de la variable CSS y el subtotal de precios
   if (count > 0) {
     cartIcon.classList.add("non-empty");
     let root = document.querySelector(":root");
