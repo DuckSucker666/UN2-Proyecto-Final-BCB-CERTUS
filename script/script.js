@@ -26,9 +26,8 @@ $(document).ready(function () {
 });
 //Clase para los elementos del carrito de compras con sus datos correspondientes
 class CartItem {
-  constructor(name, img, price, desc) {
+  constructor(name, img, price) {
     this.name = name;
-    this.desc = desc;
     this.img = img;
     this.price = price;
     this.quantity = 1;
@@ -42,8 +41,9 @@ class LocalCart {
   static getLocalCartItems() {
     let cartMap = new Map();
     const cart = localStorage.getItem(LocalCart.key);
+
     if (cart === null || cart.length === 0) return cartMap;
-    return new Map(Object.entries(JSON.parse(cart)));
+    return new Map(Object.entries(JSON.parse(cart)))
   }
 
   //A traves de la funcion updateCartUI se asigna cada elemento del localcartitem para agregarse posteriormente
@@ -51,14 +51,16 @@ class LocalCart {
     let cart = this.getLocalCartItems();
     if (cart.has(id)) {
       let mapItem = cart.get(id);
+
       mapItem.quantity += 1;
       cart.set(id, mapItem);
     } else {
       cart.set(id, item);
+
       localStorage.setItem(
         LocalCart.key,
-        JSON.stringify(Object.fromEntries(cart))
-      );
+        JSON.stringify(Object.fromEntries(cart)));
+        
       updateCartUI();
     }
   }
@@ -69,7 +71,7 @@ class LocalCart {
       let mapItem = cart.get(id);
       if (mapItem.quantity > 1) {
         mapItem.quantity -= 1;
-        cart.set(id, mapItem);
+        cart.set(id, mapItem)
       } else cart.delete(id);
     }
     if (cart.length === 0) {
@@ -94,10 +96,9 @@ function addItemFunction(e) {
   const id = e.target.parentElement.parentElement.parentElement.getAttribute("data-id");
   const img = e.target.parentElement.parentElement.previousElementSibling.src;
   const name = e.target.parentElement.previousElementSibling.textContent;
-  const desc = e.target.parentElement.children[0].textContent;
   let price = e.target.parentElement.children[2].textContent;
   price = price.replace("$", "");
-  const item = new CartItem(name, img, price, desc);
+  const item = new CartItem(name, img, price);
   LocalCart.addItemToLocalCart(id, item);
 }
 
@@ -152,7 +153,7 @@ function updateCartUI() {
     let root = document.querySelector(":root");
     root.style.setProperty("--after-content", `"${count}"`);
     const subtotal = document.querySelector(".subtotal");
-    subtotal.innerHTML = `SubTotal: $${total}`;
+    subtotal.innerHTML = `SubTotal: $${total}`
   } else cartIcon.classList.remove("non-empty");
 }
 document.addEventListener("DOMContentLoaded", () => {
