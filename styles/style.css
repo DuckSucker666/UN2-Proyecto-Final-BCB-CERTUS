@@ -114,8 +114,8 @@ h1{
     border-radius: 10px;
 }
 .ct_item-active{
-    background: linear-gradient(rgba(0, 0, 0, 0.829), rgb(9, 9, 22, 0.8)), 
-    url("https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_960_720.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.629), rgb(9, 9, 22, 0.8)), 
+    url("https://physicsworld.com/wp-content/uploads/2018/09/PWSep18Ball-noise_HERO-1024x576.jpg");
 }
 .product-item img {
     width: 100%;
